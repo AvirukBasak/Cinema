@@ -15,16 +15,25 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
-    @Id //this is used to annotate that "id" should be used as a unique identifier
+    @Id
     private ObjectId id;
     private String imdbId;
     private String title;
     private String releaseDate;
     private String trailerLink;
     private String poster;
+    private List<String> backdrops;
     private List<String> genres;
-    private List<String> backdrop;
-    @DocumentReference //MANUAL REFERENCE RELATIONSHIP
-    private List<Reviews> reviewIds;
+    @DocumentReference
+    private List<Reviews> reviews;
 
+    public Movie(String imdbId, String title, String releaseDate, String trailerLink, String poster, List<String> backdrops, List<String> genres) {
+        this.imdbId = imdbId;
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.trailerLink = trailerLink;
+        this.poster = poster;
+        this.backdrops = backdrops;
+        this.genres = genres;
+    }
 }
